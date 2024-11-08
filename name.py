@@ -5,9 +5,10 @@ import json
 # Benzersiz ürünleri saklamak için bir liste oluşturun
 urun_listesi = []
 
+domain = "www.fidanburada.com"
 # En az 5 sayfa verisi almak için döngü başlat
 for sayfa in range(1, 15):  # 1'den başlayarak 5 sayfayı çekelim
-    url = f"https://www.fidanburada.com/bitkiler?ps={sayfa}"
+    url = f"https://{domain}/bitkiler?ps={sayfa}"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
@@ -35,6 +36,7 @@ for sayfa in range(1, 15):  # 1'den başlayarak 5 sayfayı çekelim
 
         # Ürün bilgilerini bir sözlük olarak saklayın
         urun_bilgisi = {
+            "site_name": domain,
             "urun_adi": urun_adi,
             "fiyat": fiyat,
             "resim_url": resim_url
